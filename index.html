@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="shoppingApp">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Shopping Cart</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="app.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="shoppingController">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Shopping Cart</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">home</a></li>
+            <li class="active"><a href="/Cart">Cart({{cartCount}})</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<div class="container cont">
+		<div class="col-lg-12">
+			<h3 class="header"> <b>Products Catalogue</b></h3>
+			<div class="col-lg-3 col-sm-12 col-md-6 product" ng-repeat="product in products">
+				<p><img ng-src={{product.imgUrl}}></p>
+				<p>{{product.title}}</p>
+				<p>RS. {{product.price}}</p>
+				<p><button class="btn btn-primary" ng-click="add_to_cart(product.id)">Add To Cart</button></p>
+			</div>
+		</div>
+		<div class="col-lg-12 header">Made by Akash</div>
+	
+	</div>
+
+</body>
+</html>
